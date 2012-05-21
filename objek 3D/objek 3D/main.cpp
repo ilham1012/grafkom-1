@@ -16,7 +16,7 @@
 #  include <GL/glut.h>
 #endif
 
-static int kameraX = 10, sudut = 0, rX = 0, rY = 0, rZ = 0;
+static int kameraX = 0, kameraY = 0, kameraZ = 10, sudut = 0;
 void init(void)
 {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -44,7 +44,7 @@ void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT); 
     glLoadIdentity();
-    gluLookAt (0.0, (GLfloat)kameraX, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+    gluLookAt ((GLdouble)kameraX, (GLdouble)kameraY, (GLdouble)kameraZ, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
     
     glPushMatrix();
     glRotatef((GLfloat)sudut, 0.0, 1.0, 0.0);//(GLfloat)rX, (GLfloat)rY, (GLfloat)rZ);
@@ -75,14 +75,14 @@ void keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
 		case 's':
-            if(kameraX > - 15){
-                kameraX = kameraX - 5;
+            if(kameraY > - 15){
+                kameraY = kameraY - 5;
             }
 			glutPostRedisplay();
 			break;
 		case 'w':
-            if(kameraX < 15){
-                kameraX = kameraX + 5;
+            if(kameraY < 15){
+                kameraY = kameraY + 5;
             }
 			glutPostRedisplay();
 			break;
@@ -93,7 +93,31 @@ void keyboard(unsigned char key, int x, int y)
         case 'd':
 			sudut = sudut - 10;
 			glutPostRedisplay();
-			break;        
+			break;
+        case '1':
+			kameraY = 0;
+            kameraZ = 0;
+            kameraX = 10;
+			glutPostRedisplay();
+			break;
+        case '2':
+			kameraY = 0;
+            kameraZ = 0;
+            kameraX = -10;
+			glutPostRedisplay();
+			break;
+        case '3':
+			kameraY = 0;
+            kameraZ = 10;
+            kameraX = 10;
+			glutPostRedisplay();
+			break;
+        case '4':
+			kameraY = 0;
+            kameraZ = -10;
+            kameraX = -10;
+			glutPostRedisplay();
+			break;
 		default:
 			break;
 	}
