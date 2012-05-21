@@ -1,0 +1,219 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C102D03B15628C920018F35E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C102D03A15628C920018F35E /* main.cpp */; };
+		C102D03D15628C920018F35E /* objek_3D.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C102D03C15628C920018F35E /* objek_3D.1 */; };
+		C102D04415628DD60018F35E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C102D04315628DD60018F35E /* GLUT.framework */; };
+		C102D04615628DE40018F35E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C102D04515628DE40018F35E /* OpenGL.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C102D03415628C920018F35E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				C102D03D15628C920018F35E /* objek_3D.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C102D03615628C920018F35E /* objek 3D */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "objek 3D"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C102D03A15628C920018F35E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C102D03C15628C920018F35E /* objek_3D.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = objek_3D.1; sourceTree = "<group>"; };
+		C102D04315628DD60018F35E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
+		C102D04515628DE40018F35E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C102D03315628C920018F35E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C102D04415628DD60018F35E /* GLUT.framework in Frameworks */,
+				C102D04615628DE40018F35E /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C102D02B15628C910018F35E = {
+			isa = PBXGroup;
+			children = (
+				C102D03915628C920018F35E /* objek 3D */,
+				C102D03715628C920018F35E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C102D03715628C920018F35E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C102D03615628C920018F35E /* objek 3D */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C102D03915628C920018F35E /* objek 3D */ = {
+			isa = PBXGroup;
+			children = (
+				C102D04515628DE40018F35E /* OpenGL.framework */,
+				C102D04315628DD60018F35E /* GLUT.framework */,
+				C102D03A15628C920018F35E /* main.cpp */,
+				C102D03C15628C920018F35E /* objek_3D.1 */,
+			);
+			path = "objek 3D";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C102D03515628C920018F35E /* objek 3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C102D04015628C920018F35E /* Build configuration list for PBXNativeTarget "objek 3D" */;
+			buildPhases = (
+				C102D03215628C920018F35E /* Sources */,
+				C102D03315628C920018F35E /* Frameworks */,
+				C102D03415628C920018F35E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "objek 3D";
+			productName = "objek 3D";
+			productReference = C102D03615628C920018F35E /* objek 3D */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C102D02D15628C910018F35E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = UNIKOM;
+			};
+			buildConfigurationList = C102D03015628C910018F35E /* Build configuration list for PBXProject "objek 3D" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C102D02B15628C910018F35E;
+			productRefGroup = C102D03715628C920018F35E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C102D03515628C920018F35E /* objek 3D */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C102D03215628C920018F35E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C102D03B15628C920018F35E /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C102D03E15628C920018F35E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C102D03F15628C920018F35E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C102D04115628C920018F35E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C102D04215628C920018F35E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C102D03015628C910018F35E /* Build configuration list for PBXProject "objek 3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C102D03E15628C920018F35E /* Debug */,
+				C102D03F15628C920018F35E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C102D04015628C920018F35E /* Build configuration list for PBXNativeTarget "objek 3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C102D04115628C920018F35E /* Debug */,
+				C102D04215628C920018F35E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C102D02D15628C910018F35E /* Project object */;
+}
