@@ -34,7 +34,7 @@ void init(void)
     
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
     
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
     
 	glEnable(GL_DEPTH_TEST);
@@ -47,15 +47,59 @@ void display(void)
     gluLookAt ((GLdouble)kameraX, (GLdouble)kameraY, (GLdouble)kameraZ, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
     
     glPushMatrix();
-    glRotatef((GLfloat)sudut, 0.0, 1.0, 0.0);//(GLfloat)rX, (GLfloat)rY, (GLfloat)rZ);
+        glRotatef((GLfloat)sudut, 0.0, 1.0, 0.0);//(GLfloat)rX, (GLfloat)rY, (GLfloat)rZ);
+        //moncong kereta
         glPushMatrix();
-            glScalef(1.0, 0.8, 1.0);
-            glutWireSphere(2, 50, 50);
+            glRotated(90, 0, 1, 0);
+            glTranslated(0, 0, -2.5);
+                gluCylinder(gluNewQuadric(), 1.2, 1.2, 4, 50, 1);
         glPopMatrix();
+        //kabin
         glPushMatrix();
-            glScalef(1.5, 0.25, 1.5);
-            glutWireSphere(2, 50, 50);
+            glScaled(1, 1.2, 1);
+            glTranslated(2, 0.35, 0);
+                glutSolidCube(2.5);
         glPopMatrix();
+        //cerobong asap
+        glPushMatrix();
+            glTranslated(0, 3, 0);
+            glRotated(90, 1, 0, 0);
+            glTranslated(-1.3, 0, 0.8);
+                gluCylinder(gluNewQuadric(), 0.5, 0.5, 1, 50, 1);
+        glPopMatrix();
+    
+        glPushMatrix();
+            glTranslated(-1.2, -1.5, -0.8);
+                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+        glPopMatrix();
+        
+        glPushMatrix();
+            glTranslated(-1.2, -1.5, 0.6);
+                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+        glPopMatrix();
+    
+        glPushMatrix();
+            glTranslated(2, -1.5, -0.8);
+                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+        glPopMatrix();
+        
+        glPushMatrix();
+            glTranslated(2, -1.5, 0.6);
+                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+        glPopMatrix();
+        
+        glPushMatrix();
+            glScaled(5, 0.5, 0.25);
+            glTranslated(0.1, -2.5, 4);
+                glutSolidCube(1);
+        glPopMatrix();
+        
+        glPushMatrix();
+            glScaled(5, 0.5, 0.25);
+            glTranslated(0.1, -2.5, -4);
+                glutSolidCube(1);
+        glPopMatrix();
+    
     glPopMatrix();
     
 	glutSwapBuffers();
