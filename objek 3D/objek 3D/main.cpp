@@ -16,15 +16,22 @@
 #  include <GL/glut.h>
 #endif
 
+GLfloat LightAmbient[]  = {0.5f, 0.5f, 0.5f, 1.0f};  // Gray (constant factor)
+GLfloat LightDiffuse[]  = {1.0f, 1.0f, 1.0f, 1.0f};  // White (all directions)
+// default for specular is black
+GLfloat LightPosition[] = {0.0f, 0.0f, 2.0f, 1.0f};  // behind camera (relative to camera)
+bool lightingEnabled = false;   // Lighting enabled or disabled
+
 static int kameraX = 0, kameraY = 0, kameraZ = 10, sudut = 0;
 void init(void)
 {
-	glClearColor(0.0, 0.0, 0.0, 0.0);
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[] = { 50.0 };
+	glClearColor(1.0, 1.0, 1.0, 0.50);
+    
+    /*GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 1.0 };
 	GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
 	GLfloat white_light[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat lmodel_ambient[] = { 0.1, 0.1, 0.1, 1.0 };
+	GLfloat lmodel_ambient[] = { 0, 0, 0, 1.0 };
 	glShadeModel(GL_SMOOTH);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
@@ -32,10 +39,25 @@ void init(void)
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, white_light);
 	glLightfv(GL_LIGHT0, GL_SPECULAR, white_light);
     
-	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);glEnable(GL_LIGHTING);
+    //glEnable(GL_COLOR_MATERIAL);
+	glEnable(GL_LIGHT0);*/   
+    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 100.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+    GLfloat mat_emission[]={0,0,0,100};
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
     
-	//glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
+	glLightfv(GL_LIGHT1, GL_AMBIENT,  LightAmbient);  // Setup the ambient component
+    glLightfv(GL_LIGHT1, GL_DIFFUSE,  LightDiffuse);  // Setup the diffuse component
+    glLightfv(GL_LIGHT1, GL_POSITION, LightPosition); // Position light-1
+    
+    
+    
+    glEnable(GL_LIGHT1);     // Enable Light-1
+    glDisable(GL_LIGHTING);
+    
     
 	glEnable(GL_DEPTH_TEST);
 }
@@ -49,9 +71,11 @@ void display(void)
     glPushMatrix();
         glRotatef((GLfloat)sudut, 0.0, 1.0, 0.0);//(GLfloat)rX, (GLfloat)rY, (GLfloat)rZ);
         //moncong kereta
+        
         glPushMatrix();
             glRotated(90, 0, 1, 0);
             glTranslated(0, 0, -2.5);
+                glColor3f(0.0f, 0.0f, 0.0f);
                 gluCylinder(gluNewQuadric(), 1.2, 1.2, 4, 50, 1);
         glPopMatrix();
         //kabin
@@ -68,37 +92,38 @@ void display(void)
                 gluCylinder(gluNewQuadric(), 0.5, 0.5, 1, 50, 1);
         glPopMatrix();
     
-        glPushMatrix();
-            glTranslated(-1.2, -1.5, -0.8);
-                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
-        glPopMatrix();
-        
-        glPushMatrix();
-            glTranslated(-1.2, -1.5, 0.6);
-                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
-        glPopMatrix();
-    
-        glPushMatrix();
-            glTranslated(2, -1.5, -0.8);
-                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
-        glPopMatrix();
-        
-        glPushMatrix();
-            glTranslated(2, -1.5, 0.6);
-                gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
-        glPopMatrix();
-        
-        glPushMatrix();
-            glScaled(5, 0.5, 0.25);
-            glTranslated(0.1, -2.5, 4);
-                glutSolidCube(1);
-        glPopMatrix();
-        
-        glPushMatrix();
-            glScaled(5, 0.5, 0.25);
-            glTranslated(0.1, -2.5, -4);
-                glutSolidCube(1);
-        glPopMatrix();
+            //roda belakang
+            glPushMatrix();
+                glTranslated(-1.2, -1.5, -0.8);
+                    gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+            glPopMatrix();
+            
+            glPushMatrix();
+                glTranslated(-1.2, -1.5, 0.6);
+                    gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+            glPopMatrix();
+            //roda depan
+            glPushMatrix();
+                glTranslated(2, -1.5, -0.8);
+                    gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+            glPopMatrix();
+            
+            glPushMatrix();
+                glTranslated(2, -1.5, 0.6);
+                    gluCylinder(gluNewQuadric(), 0.5, 0.5, 0.25, 50, 1);
+            glPopMatrix();
+            //penutup roda
+            glPushMatrix();
+                glScaled(5, 0.5, 0.25);
+                glTranslated(0.1, -2.5, 4);
+                    glutSolidCube(1);
+            glPopMatrix();
+            
+            glPushMatrix();
+                glScaled(5, 0.5, 0.25);
+                glTranslated(0.1, -2.5, -4);
+                    glutSolidCube(1);
+            glPopMatrix();
     
     glPopMatrix();
     
@@ -139,29 +164,13 @@ void keyboard(unsigned char key, int x, int y)
 			glutPostRedisplay();
 			break;
         case '1':
-			kameraY = 0;
-            kameraZ = 0;
-            kameraX = 10;
-			glutPostRedisplay();
-			break;
-        case '2':
-			kameraY = 0;
-            kameraZ = 0;
-            kameraX = -10;
-			glutPostRedisplay();
-			break;
-        case '3':
-			kameraY = 0;
-            kameraZ = 10;
-            kameraX = 10;
-			glutPostRedisplay();
-			break;
-        case '4':
-			kameraY = 0;
-            kameraZ = -10;
-            kameraX = -10;
-			glutPostRedisplay();
-			break;
+			lightingEnabled = !lightingEnabled;
+            if (!lightingEnabled)
+                glDisable(GL_LIGHTING);
+            else
+                glEnable(GL_LIGHTING);
+            break;
+        
 		default:
 			break;
 	}
@@ -196,9 +205,10 @@ int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    //glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
     glutInitWindowSize(500, 500);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow(argv[0]);
+    glutCreateWindow("Kereta Api");
     init();
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
